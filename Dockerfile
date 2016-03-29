@@ -18,12 +18,7 @@ RUN source /srv/virtenv/bin/activate && pip install gunicorn==19.4.5
 
 EXPOSE $APP_PORT
 VOLUME ["$LOG_DIR"]
+ADD start-gunicorn.sh /home/app/start-gunicorn.sh
+#RUN chmod +x /home/app/start-gunicorn.sh
 
-CMD gunicorn $APP_MODULE \
-    --name $APP_PROCESS_NAME \
-    --bind 0.0.0.0:$APP_PORT \
-    --workers $APP_WORKERS_COUNT \
-    --log-level=$APP_LOG_LEVEL \
-    --log-file="$LOG_DIR/gunicorn.log" \
-    --access-logfile="$LOG_DIR/access.log" \
-    --chdir=$APPLICATION_DIR
+CMD /home/app/start-gunicorn.sh
