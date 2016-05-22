@@ -16,6 +16,5 @@ gunicorn $APP_MODULE \
     --workers $APP_WORKERS_COUNT \
     --timeout $TIMEOUT \
     --log-level=$APP_LOG_LEVEL \
-    --log-file="$LOG_DIR/gunicorn.log" \
-    --access-logfile="$LOG_DIR/access.log" \
+    --log-file="-" \
     --chdir=$APPLICATION_DIR
