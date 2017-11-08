@@ -1,4 +1,4 @@
-FROM logicify/python3:3.6
+FROM logicify/python3
 MAINTAINER "Dmitry Berezovsky <dmitry.berezovsky@logicify.com>"
 
 ENV APP_PROCESS_NAME="wsgi-application"
