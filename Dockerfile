@@ -9,10 +9,9 @@ ENV APP_LOG_LEVEL="info"
 ENV APP_PORT="8000"
 ENV APPLICATION_DIR="/srv/application"
 
-RUN source /srv/virtenv/bin/activate && pip install gunicorn==19.4.5
+RUN source /srv/virtenv/bin/activate && pip install gunicorn==19.6.0 greenlet eventlet
 
 EXPOSE $APP_PORT
 ADD start-gunicorn.sh /home/app/start-gunicorn.sh
-#RUN chmod +x /home/app/start-gunicorn.sh
 
 CMD /home/app/start-gunicorn.sh
